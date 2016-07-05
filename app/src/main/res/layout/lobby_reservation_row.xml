@@ -2,17 +2,17 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:layout_gravity="center"
     android:gravity="center_vertical">
 
     <FrameLayout
         android:id="@+id/outerTitleLayout"
-        android:layout_width="170dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="120dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="00dp">
 
         <LinearLayout
             android:id="@+id/middleTitleLayout"
@@ -64,7 +64,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
-            android:visibility="visible">
+            android:visibility="visible"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/bookNowButton"
@@ -75,7 +76,7 @@
                 android:background="@drawable/button_background"
                 android:focusable="true"
                 android:text="@string/book_now"
-                android:textColor="#fff"></Button>
+                android:textColor="#000"></Button>
 
             <TextView
                 android:id="@+id/roomStatusLabel"
@@ -83,7 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
-                android:width="200px"
+                android:width="160px"
+                android:textSize="20dp"
                 android:text="&lt;status&gt;"></TextView>
 
             <FrameLayout
@@ -106,7 +108,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
             <com.futurice.android.reservator.view.CustomTimeSpanPicker2
                 android:id="@+id/timeSpanPicker2"
@@ -136,7 +139,7 @@
                     android:inputType="textCapWords|textFilter"
                     android:lines="1"
                     android:maxLines="1"
-                    android:textColor="@color/button_color"></AutoCompleteTextView>
+                    android:textColor="#000"></AutoCompleteTextView>
 
                 <TextView
                     android:id="@+id/hintText"
@@ -152,11 +155,11 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="30dp"
                     android:layout_marginTop="30dp"
-                    android:layout_toRightOf="@+id/autoCompleteTextView1"
+                    android:layout_below="@+id/hintText"
                     android:background="@drawable/button_background"
                     android:focusable="true"
                     android:text="Reserve"
-                    android:textColor="@color/button_color"></Button>
+                    android:textColor="#fff"></Button>
             </RelativeLayout>
 
             <FrameLayout

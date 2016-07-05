@@ -48,7 +48,7 @@ import com.futurice.android.reservator.view.WeekView.OnReservationClickListener;
 public class RoomActivity extends ReservatorActivity implements OnMenuItemClickListener,
     DataUpdatedListener, AddressBookUpdatedListener {
     public static final String ROOM_EXTRA = "room";
-    public static final long ROOMLIST_REFRESH_PERIOD = 60 * 1000;
+    public static final long ROOMLIST_REFRESH_PERIOD = 10 * 1000;
     final Handler handler = new Handler();
     final Runnable refreshDataRunnable = new Runnable() {
         @Override

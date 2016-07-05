@@ -7,6 +7,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
+import com.futurice.android.reservator.R;
+import com.futurice.android.reservator.ReservatorActivity;
+import com.futurice.android.reservator.ReservatorApplication;
 import com.futurice.android.reservator.common.Helpers;
 
 public class Room implements Serializable {
@@ -242,15 +245,20 @@ public class Room implements Serializable {
         if (this.isFree()) {
             int freeMinutes = this.minutesFreeFromNow();
 
-            if (freeMinutes > FREE_THRESHOLD_MINUTES) {
-                return "Free";
-            } else if (freeMinutes < RESERVED_THRESHOLD_MINUTES) {
-                return "Reserved";
+//            if (freeMinutes > FREE_THRESHOLD_MINUTES) {
+//                return ReservatorApplication.getAppContext().getString(R.string.free);
+//            } else if (freeMinutes < RESERVED_THRESHOLD_MINUTES) {
+//                return ReservatorApplication.getAppContext().getString(R.string.reservedSoon);
+//            } else {
+//                return ReservatorApplication.getAppContext().getString(R.string.freeFor) + " " + Helpers.humanizeTimeSpan(freeMinutes);
+//            }
+            if (freeMinutes > 10 * 60) {
+                return ReservatorApplication.getAppContext().getString(R.string.free);
             } else {
-                return "Free for " + Helpers.humanizeTimeSpan(freeMinutes);
+                return ReservatorApplication.getAppContext().getString(R.string.freeFor) + " " + Helpers.humanizeTimeSpan(freeMinutes);
             }
         } else {
-            return "Reserved";
+            return ReservatorApplication.getAppContext().getString(R.string.reserved); // + " for " + Helpers.humanizeTimeSpan((int)this.getNextFreeTime().getEnd().getTimeInMillis() / 1000 / 60 / 60));
         }
     }
 }

@@ -36,6 +36,7 @@ import com.futurice.android.reservator.model.DataUpdatedListener;
 import com.futurice.android.reservator.model.DateTime;
 import com.futurice.android.reservator.model.ReservatorException;
 import com.futurice.android.reservator.model.Room;
+import com.futurice.android.reservator.view.CustomDigitalClock;
 import com.futurice.android.reservator.view.LobbyReservationRowView;
 import com.futurice.android.reservator.view.LobbyReservationRowView.OnReserveListener;
 
@@ -58,7 +59,7 @@ public class LobbyActivity extends ReservatorActivity implements OnMenuItemClick
         this.setContentView(R.layout.lobby_activity);
         proxy = this.getResApplication().getDataProxy();
         ab = this.getResApplication().getAddressBook();
-        DigitalClock clock = (DigitalClock) findViewById(R.id.digitalClock1);  //FIXME deprecated
+        CustomDigitalClock clock = (CustomDigitalClock) findViewById(R.id.digitalClock1);  //FIXME deprecated
         clock.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/EHSMB.TTF"));
     }
 

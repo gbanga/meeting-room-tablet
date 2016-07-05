@@ -86,6 +86,10 @@ public class LobbyReservationRowView extends FrameLayout implements
         switchToNormalModeContent();
         settings = context.getSharedPreferences(context.getString(R.string.PREFERENCES_NAME), context.MODE_PRIVATE);
 
+        if (this.isInEditMode()) {
+            return;
+        }
+
         application = (ReservatorApplication) this.getContext()
             .getApplicationContext();
         nameField.setOnFocusChangeListener(userNameFocusChangeListener);

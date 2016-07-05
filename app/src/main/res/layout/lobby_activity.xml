@@ -5,15 +5,16 @@
                 android:background="#fff"
                 android:padding="0dip">
 
-    <DigitalClock
+    <com.futurice.android.reservator.view.CustomDigitalClock
         android:id="@+id/digitalClock1"
         style="@style/DigitalClockStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="150dp">
-    </DigitalClock>
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="150dp"
+        android:visibility="invisible">
+    </com.futurice.android.reservator.view.CustomDigitalClock>
 
     <ScrollView
         android:id="@+id/scrollView1"

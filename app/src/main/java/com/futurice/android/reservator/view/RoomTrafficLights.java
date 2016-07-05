@@ -3,6 +3,7 @@ package com.futurice.android.reservator.view;
 import com.futurice.android.reservator.R;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.test.suitebuilder.annotation.Suppress;
@@ -27,8 +28,8 @@ import com.futurice.android.reservator.model.TimeSpan;
 
 public class RoomTrafficLights extends RelativeLayout {
     private static Date lastTimeConnected = new Date(0);
-    final long TOUCH_TIMEOUT = 30 * 1000;
-    final long TOUCH_TIMER = 10 * 1000;
+    final long TOUCH_TIMEOUT = 2 * 1000; // was 30
+    final long TOUCH_TIMER = 1 * 1000; // was 10
     final int QUICK_BOOK_THRESHOLD = 5; // minutes
     // Show "disconnected" warning icon on screen when disconnected for more than 5 minutes
     private final long DISCONNECTED_WARNING_ICON_THRESHOLD = 5 * 60 * 1000;
@@ -81,17 +82,17 @@ public class RoomTrafficLights extends RelativeLayout {
         roomTitleView.setText(room.getName());
 
         if (room.isBookable(QUICK_BOOK_THRESHOLD)) {
-            roomStatusView.setText("Free");
+            roomStatusView.setText(getContext().getString(R.string.free));
             if (room.isFreeRestOfDay()) {
-                roomStatusInfoView.setText("for the day");
+                roomStatusInfoView.setText(getContext().getString(R.string.forTheDay));
                 this.setBackgroundColor(getResources().getColor(R.color.TrafficLightFree));
                 // Must use deprecated API for some reason or it crashes on older tablets
                 bookNowView.setBackgroundDrawable(getResources().getDrawable(R.drawable.traffic_lights_button_green));
                 bookNowView.setTextColor(getResources().getColorStateList(R.color.traffic_lights_button_green));
             } else {
                 int freeMinutes = room.minutesFreeFromNow();
-                roomStatusView.setText("Free");
-                roomStatusInfoView.setText("for " + Helpers.humanizeTimeSpan2(freeMinutes));
+                roomStatusView.setText(getContext().getString(R.string.free));
+                roomStatusInfoView.setText(getContext().getString(R.string.forTimespan) + " " + Helpers.humanizeTimeSpan2(freeMinutes));
                 if (freeMinutes >= Room.RESERVED_THRESHOLD_MINUTES) {
                     this.setBackgroundColor(getResources().getColor(R.color.TrafficLightFree));
                     bookNowView.setBackgroundDrawable(getResources().getDrawable(R.drawable.traffic_lights_button_green));
@@ -106,14 +107,28 @@ public class RoomTrafficLights extends RelativeLayout {
             roomStatusInfoView.setVisibility(VISIBLE);
             bookNowView.setVisibility(VISIBLE);
         } else {
+            // this.setBackgroundColor(getResources().getColor(R.color.TrafficLightReserved));
             this.setBackgroundColor(getResources().getColor(R.color.TrafficLightReserved));
-            roomStatusView.setText("Reserved");
+            roomStatusView.setText(getContext().getString(R.string.reserved));
             bookNowView.setVisibility(GONE);
             setReservationInfo(room.getCurrentReservation(), room.getNextFreeSlot());
+/*            roomTitleView.setTextColor(getResources().getColorStateList(R.color.traffic_lights_button_yellow));
+            roomStatusView.setTextColor(getResources().getColorStateList(R.color.traffic_lights_button_yellow));
+            roomStatusInfoView.setTextColor(getResources().getColorStateList(R.color.traffic_lights_button_yellow));
+            bookNowView.setTextColor(getResources().getColorStateList(R.color.traffic_lights_button_yellow));
+            reservationInfoView.setTextColor(getResources().getColorStateList(R.color.traffic_lights_button_yellow)); */
+/*            roomTitleView.setTextColor(getResources().getColorStateList(R.color.WhiteColor));
+            roomStatusView.setTextColor(getResources().getColorStateList(R.color.WhiteColor));
+            roomStatusInfoView.setTextColor(getResources().getColorStateList(R.color.WhiteColor));
+            bookNowView.setTextColor(getResources().getColorStateList(R.color.WhiteColor));
+            reservationInfoView.setTextColor(getResources().getColorStateList(R.color.WhiteColor)); */
         }
     }
 
     private void updateConnected() {
+        if (this.isInEditMode()) {
+            return;
+        }
         ConnectivityManager cm = null;
         try {
             cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);

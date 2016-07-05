@@ -2,6 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
        android:shape="rectangle">
     <solid android:color="@color/MenuButtonPressedColor"/>
+    <stroke android:color="@color/ButtonTextActive" android:width="1px"/>
     <corners android:radius="5dp"/>
     <padding
         android:left="35dp"

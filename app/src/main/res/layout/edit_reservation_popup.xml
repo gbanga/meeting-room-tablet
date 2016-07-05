@@ -5,7 +5,7 @@
                 android:isScrollContainer="false">
 
     <FrameLayout
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_width="fill_parent"
         android:layout_centerVertical="true"
         android:background="#fff">
@@ -21,6 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
+                android:paddingTop="100dp"
                 android:layout_alignLeft="@id/linearLayout1"
                 android:layout_alignRight="@id/linearLayout1"
                 android:text="@string/reservationCancelInfo"
@@ -66,10 +67,10 @@
                     android:layout_width="wrap_content"
                     android:focusable="true"
                     android:text="Cancel reservation"
-                    android:background="@drawable/button_background"
+                    android:background="@drawable/button_upstate"
                     android:textStyle="bold"
                     android:enabled="false"
-                    android:textColor="@color/button_color"/>
+                    android:textColor="@color/ButtonTextActive"/>
             </LinearLayout>
 
             <ImageButton

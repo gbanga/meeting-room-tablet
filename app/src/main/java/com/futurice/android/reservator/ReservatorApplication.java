@@ -12,6 +12,11 @@ import com.futurice.android.reservator.model.platformcalendar.PlatformCalendarDa
 import com.futurice.android.reservator.model.platformcontacts.PlatformContactsAddressBook;
 
 public class ReservatorApplication extends Application {
+    private static Context context;
+    public static Context getAppContext() {
+        return ReservatorApplication.context;
+    }
+
     private final long ADDRESS_CACHE_CLEAR_INTERVAL = 6 * 60 * 60 * 1000; // Once every six hours
     Runnable clearAddressCache = new Runnable() {
         @Override
@@ -34,6 +39,8 @@ public class ReservatorApplication extends Application {
 
     @Override
     public void onCreate() {
+        ReservatorApplication.context = getApplicationContext();
+
         PlatformContactsAddressBook googleAddressBook = new PlatformContactsAddressBook(getContentResolver());
 
         proxy = new PlatformCalendarDataProxy(
@@ -76,4 +83,6 @@ public class ReservatorApplication extends Application {
     private void clearCacheLater() {
         handler.postDelayed(clearAddressCache, ADDRESS_CACHE_CLEAR_INTERVAL);
     }
+
+
 }

@@ -2,23 +2,24 @@
 <resources>
 
     <style name="CalendarFont" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textColor">#666</item>
-        <item name="android:textSize">18pt</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">24pt</item>
     </style>
 
-    <color name="CalendarDisabledColor">#4000</color>
-    <color name="CalendarBorderColor">#ccc</color>
+    <color name="CalendarDisabledColor">#000</color>
+    <color name="CalendarBorderColor">#000</color>
     <color name="CalendarTextColor">#000</color>
-    <color name="CalendarResTextColor">#fff</color>
-    <color name="StatusFreeColor">#529200</color>
-    <color name="StatusReservedColor">#b24c4c</color>
-    <color name="Transparent">#0000</color>
-    <color name="CalendarMarkerReservedColor">#0066CC</color>
-    <color name="CalendarMarkerFreeColor">#0000</color>
+    <color name="CalendarResTextColor">#000</color>
+    <color name="StatusFreeColor">#000</color>
+    <color name="StatusReservedColor">#000</color>
+    <color name="Transparent">#fff</color>
+    <color name="CalendarMarkerReservedColor">#000</color>
+    <color name="CalendarMarkerFreeColor">#fff</color>
+    <color name="WhiteColor">#ffffff</color>
 
     <style name="Theme.Transparent" parent="android:Theme">
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@color/Transparent</item>
+        <item name="android:windowBackground">@color/WhiteColor</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowNoTitle">true</item>
         <!-- <item name="android:windowIsFloating">true</item> -->
@@ -26,7 +27,7 @@
     </style>
 
     <color name="TextColor">#000</color>
-    <color name="TimeSpanTextColor">#529200</color>
+    <color name="TimeSpanTextColor">#000</color>
 
     <style name="TimeSpanTimeStyle">
         <item name="android:textStyle">bold</item>
@@ -36,29 +37,30 @@
 
     <style name="DigitalClockStyle">
         <item name="android:textColor">@color/TimeSpanTextColor</item>
-        <item name="android:textSize">64sp</item>
+        <item name="android:textSize">32sp</item>
     </style>
 
-    <color name="FutuLightGreen">#cbdeb2</color>
-    <color name="ReserveBackground">#6698c655</color>
-    <color name="ReserveLine">#a4cb80</color>
-    <color name="TimeBarTickColor">#3333</color>
-    <color name="ButtonTextNormal">#333</color>
-    <color name="ButtonTextActive">#333</color>
-    <color name="ButtonTextDisabled">#999</color>
-    <color name="TextInfoColor">#666</color>
-    <color name="CalendarWeekTextColor">#999</color>
-    <color name="MenuButtonBackgroundColor">#005C99</color>
-    <color name="MenuButtonPressedColor">#00436E</color>
-    <color name="MenuButtonInactiveColor">#E3E3E9</color>
+    <color name="FutuLightGreen">#000</color>
+    <color name="ReserveBackground">#fff</color>
+    <color name="ReserveLine">#000</color>
+    <color name="TimeBarTickColor">#000</color>
+    <color name="ButtonTextNormal">#000</color>
+    <color name="ButtonTextActive">#fff</color>
+    <color name="ButtonTextDisabled">#000</color>
+    <color name="TextInfoColor">#000</color>
+    <color name="CalendarWeekTextColor">#000</color>
+    <color name="MenuButtonBackgroundColor">#fff</color>
+    <color name="MenuButtonPressedColor">#000</color>
+    <color name="MenuButtonInactiveColor">#000</color>
 
-    <color name="TrafficLightFree">#4ccb00</color>
-    <color name="TrafficLightYellow">#cee100</color>
-    <color name="TrafficLightReserved">#de1f00</color>
+    <color name="TrafficLightFree">#fff</color>
+    <color name="TrafficLightYellow">#a8a8a8</color>
+    <color name="TrafficLightReserved">#545454</color>
     <color name="TrafficLightText">#fff</color>
-    <color name="TrafficLightYellowButtonText">#becf00</color>
-    <color name="TrafficLightYellowButtonPressed">#a0af00</color>
-    <color name="TrafficLightGreenButtonPressed">#03a021</color>
-    <color name="TrafficLightYellowButtonPressedText">#e4ec8c</color>
-    <color name="TrafficLightGreenButtonPressedText">#98dd6f</color>
+    <color name="TrafficLightGreenButtonPressed">#fff</color>
+    <color name="TrafficLightGreenButtonPressedText">#000</color>
+    <color name="TrafficLightYellowButtonText">#fff</color>
+    <color name="TrafficLightYellowButtonPressed">#fff</color>
+    <color name="TrafficLightYellowButtonPressedText">#fff</color>
+
 </resources>
