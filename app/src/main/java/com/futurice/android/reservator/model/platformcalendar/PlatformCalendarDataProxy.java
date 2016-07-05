@@ -430,7 +430,7 @@ public class PlatformCalendarDataProxy extends DataProxy {
 
                     Reservation res = new Reservation(
                         Long.toString(eventId) + "-" + Long.toString(start),
-                        makeEventTitle(room.getName(), eventId, title, DEFAULT_MEETING_NAME),
+                        makeEventTitle(room.getName(), eventId, title, /* DEFAULT_MEETING_NAME */ eventOrganizerAccount),
                         new TimeSpan(new DateTime(start), new DateTime(end)));
                     if (eventOrganizerAccount != null && calendarAccount.equals(eventOrganizerAccount.toLowerCase())) {
                         res.setIsCancellable(true);
