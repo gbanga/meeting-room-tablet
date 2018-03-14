@@ -17,7 +17,7 @@
         android:layout_above="@+id/endDragger"
         android:layout_height="fill_parent"
         android:layout_below="@+id/beginDragger"
-        android:background="#40518d02">
+        android:background="#000000">
     </FrameLayout>
 
     <ImageButton

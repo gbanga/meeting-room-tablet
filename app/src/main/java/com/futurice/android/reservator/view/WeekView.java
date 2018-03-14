@@ -62,7 +62,8 @@ public class WeekView extends RelativeLayout implements OnClickListener {
                         res.getSubject(),
                         new TimeSpan(
                             res.getStartTime().before(day.getStart()) ? day.getStart() : res.getStartTime(),
-                            res.getEndTime().after(day.getEnd()) ? day.getEnd() : res.getEndTime())));
+                            res.getEndTime().after(day.getEnd()) ? day.getEnd() : res.getEndTime()),
+                            res.getHost()));
                 } else {
                     boundDayReservations.add(res);
                 }

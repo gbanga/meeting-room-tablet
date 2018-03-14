@@ -16,6 +16,8 @@ public class ReservatorActivity extends Activity {
     private final ReservatorAppHandler handler = new ReservatorAppHandler();
     private GoToFavouriteRoom goToFavouriteRoomRunable;
 
+    private final int GO_TO_FAV_ROOM_TIMEOUT = 5000;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -61,7 +63,7 @@ public class ReservatorActivity extends Activity {
 
     private void startAutoGoToFavouriteRoom() {
         if (isPrehensible()) {
-            handler.postDelayed(goToFavouriteRoomRunable, 60000);
+            handler.postDelayed(goToFavouriteRoomRunable, GO_TO_FAV_ROOM_TIMEOUT);
         }
     }
 

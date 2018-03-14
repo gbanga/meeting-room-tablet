@@ -13,7 +13,8 @@
         android:paddingBottom="40dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingTop="20dp">
+        android:paddingTop="20dp"
+        android:isScrollContainer="true">
 
         <TextView
             android:id="@+id/addressBookOptionLabel"
@@ -132,7 +133,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/roomListLabel"
-            android:cacheColorHint="@android:color/transparent"/>
+            android:cacheColorHint="@android:color/white"
+            android:minHeight="150dp"/>
     </RelativeLayout>
 
 </ScrollView>

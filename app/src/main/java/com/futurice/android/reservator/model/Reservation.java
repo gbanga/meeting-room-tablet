@@ -8,16 +8,22 @@ public class Reservation implements Comparable<Reservation>, Serializable {
     final private String id;
     final private TimeSpan timeSpan;
     final private String subject;
+    final private String host;
     private boolean cancellable = false;
 
-    public Reservation(String id, String subject, TimeSpan timeSpan) {
+    public Reservation(String id, String subject, TimeSpan timeSpan, String host) {
         this.id = id;
         this.subject = subject;
         this.timeSpan = timeSpan;
+        this.host = host;
     }
 
     public String getSubject() {
         return this.subject;
+    }
+
+    public String getHost() {
+        return this.host;
     }
 
     public TimeSpan getTimeSpan() {

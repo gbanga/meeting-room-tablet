@@ -65,7 +65,9 @@
             android:text="@string/bookNow"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:textIsSelectable="false"/>
+            android:textIsSelectable="false"
+            android:background="@drawable/button_upstate"
+            android:visibility="invisible"/>
 
         <LinearLayout
             android:id="@+id/disconnected"

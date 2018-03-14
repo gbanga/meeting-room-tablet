@@ -130,7 +130,8 @@ public class PlatformCalendarDataProxy extends DataProxy {
         Reservation createdReservation = new Reservation(
             Long.toString(eventId) + "-" + Long.toString(timeSpan.getStart().getTimeInMillis()),
             owner,
-            timeSpan);
+            timeSpan,
+            owner);
         createdReservation.setIsCancellable(true);
         putToLocalCache(room, createdReservation);
     }
@@ -412,11 +413,11 @@ public class PlatformCalendarDataProxy extends DataProxy {
         ContentUris.appendId(builder, maxTime);
 
         Cursor result = resolver.query(
-            builder.build(),
-            mProjection,
-            mSelectionClause,
-            mSelectionArgs,
-            mSortOrder);
+                builder.build(),
+                mProjection,
+                mSelectionClause,
+                mSelectionArgs,
+                mSortOrder);
 
         if (result != null) {
             if (result.getCount() > 0) {
@@ -430,8 +431,8 @@ public class PlatformCalendarDataProxy extends DataProxy {
 
                     Reservation res = new Reservation(
                         Long.toString(eventId) + "-" + Long.toString(start),
-                        makeEventTitle(room.getName(), eventId, title, DEFAULT_MEETING_NAME),
-                        new TimeSpan(new DateTime(start), new DateTime(end)));
+                        makeEventTitle(room.getName(), eventId, title, /* DEFAULT_MEETING_NAME */ eventOrganizerAccount),
+                        new TimeSpan(new DateTime(start), new DateTime(end)), eventOrganizerAccount);
                     if (eventOrganizerAccount != null && calendarAccount.equals(eventOrganizerAccount.toLowerCase())) {
                         res.setIsCancellable(true);
                     }
@@ -505,8 +506,9 @@ public class PlatformCalendarDataProxy extends DataProxy {
 
         String[] mProjection = {};
         String mSelectionClause =
-            CalendarContract.Calendars.OWNER_ACCOUNT + " GLOB ? AND " +
-                CalendarContract.Calendars.SYNC_EVENTS + " = 1";
+            CalendarContract.Calendars.OWNER_ACCOUNT + " GLOB ? " +
+                    " AND " +
+                 CalendarContract.Calendars.SYNC_EVENTS + " = 1";
         String[] mSelectionArgs = {roomAccountGlob};
         String mSortOrder = null;
 
